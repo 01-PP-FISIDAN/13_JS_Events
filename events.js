@@ -1,21 +1,28 @@
 /********  Variablen **********/
 const btn = document.getElementById("trigBtn");
-let appStatus =true;
+// let btn = document.body.children[0]; // hier bestimme ich den Trigger als "Prozeduale Prograrmmierung", die Headline Kind array 0
+let appStatus = true;
 
 /********  Event-Listener **********/
 
 // Webseite geladen --> auf (Anfangs)-Zustand umschalten
-window.addEventListener("load",toggleAppStatus);
+// window.addEventListener("wheel", toggleAppStatus);
+window.addEventListener("load", toggleAppStatus); // damit gesichert ist, dass alle nötigen Bestandteile geladen sind und im Event-Listener aktiviert werden.
+
 
 // Klick auf Btn  --> Zustand umschalten
 btn.addEventListener("click",toggleAppStatus);
+// btn.addEventListener("mouseenter", toggleAppStatus)
+
+
 
 /********  Business-Logic | Toggle **********/
 
 // Wechselschalter:  true = !false | false = !true
 function toggleAppStatus() {
-    appStatus = !appStatus; 
-    updateView();
+    appStatus = !appStatus; // "!" weist den Gegenteil der Variablen zu (Wechselschalter)
+    // output(appStatus); // wirft in der Konsole den Status aus true || false, nur zur Veranschaulichung
+    updateView();  // wird unten benötigt, um die Beschriftung zu ändern
 }
 
 /********  View-Schicht **********/
